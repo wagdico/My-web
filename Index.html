@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة القائد الحربي وموسوعة الحضارة المصرية</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Top navigation bar -->
+    <div class="top-bar">
+        <button onclick="showSection('game')">اللعبة</button>
+        <button onclick="showSection('app')">التطبيق</button>
+    </div>
+
+    <!-- Game Section -->
+    <div id="game" class="section active">
+        <div class="game-container">
+            <canvas id="gameCanvas"></canvas>
+            <div class="controls">
+                <button id="upButton">⬆</button>
+                <div>
+                    <button id="leftButton">⬅</button>
+                    <button id="shootButton">🔫</button>
+                    <button id="rightButton">➡</button>
+                </div>
+                <button id="downButton">⬇</button>
+            </div>
+            <div class="info">
+                <div class="life-bar-container">
+                    <span>الشريط الصحي:</span>
+                    <div id="lifeBar"></div>
+                </div>
+                <div class="score-info">
+                    <span id="scoreDisplay">النتيجة: 0</span>
+                    <span id="requiredScore">النتيجة المطلوبة: 5</span>
+                </div>
+            </div>
+            <button id="restartButton" style="display: none;">إعادة تشغيل</button>
+        </div>
+    </div>
+
+    <!-- App Section -->
+    <div id="app" class="section">
+        <header>
+            <div id="top-message">Free Palestine فلسطين في القلب 🇵🇸</div>
+            <h1 id="main-title">موسوعة الحضارة المصرية</h1>
+            <p id="main-subtitle">🇪🇬 مصر - تاريخ، حضارة، وثقافة</p>
+            <div class="language-selector">
+                <label for="language" id="language-label">اختر اللغة:</label>
+                <select id="language" onchange="changeLanguage()">
+                    <option value="ar">العربية</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </header>
+
+        <main>
+            <section class="introduction">
+                <h2 id="introduction-title">لمحة عن الحضارة المصرية القديمة</h2>
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="ابحث عن التاريخ المصري...">
+                    <button id="search-button" onclick="fetchContent()">ابحث</button>
+                </div>
+            </section>
+            
+            <section id="content-section">
+                <!-- سيتم تحميل المعلومات والصور والفيديوهات هنا -->
+            </section>
+            
+            <div class="pagination">
+                <button id="prev-button" onclick="fetchPreviousContent()">المقال السابق</button>
+                <button id="next-button" onclick="fetchNextContent()">المقال التالي</button>
+            </div>
+
+            <section class="youtube-videos" id="youtube-videos">
+                <!-- سيتم عرض فيديوهات اليوتيوب هنا -->
+            </section>
+        </main>
+
+        <footer>
+            <p>جميع الحقوق محفوظة &copy; 2024 - موسوعة الحضارة المصرية</p>
+        </footer>
+    </div>
+</body>
+</html>
